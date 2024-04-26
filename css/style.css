@@ -1,0 +1,585 @@
+@CHARSET "UTF-8";
+
+/* Content area */
+body {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* 최소 높이를 화면 높이로 설정하여 footer를 항상 아래에 유지 */
+	background-color: #f4eae5;
+}
+
+header {
+	background-color: #333;
+	color: white;
+	/* text-align: center; */
+	padding: 30px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	display: flex;
+	z-index: 2; /* 다른 요소보다 위에 나타나도록 설정 */
+	/* justify-content: flex-end;  */ /* 메뉴를 오른쪽으로 정렬 */
+}
+
+h1 {
+	margin: 0; /* 기본 마진 제거 */
+	padding: 0px 15px;
+	margin-right: 50px;
+}
+
+footer {
+	background-color: #333;
+	color: white;
+	text-align: center;
+	padding: 2px;
+	position: sticky; /* sticky로 변경 */
+	bottom: 0;
+	width: 100%;
+}
+
+main {
+	flex: 1;
+	padding: 80px;
+	overflow-y: auto;
+}
+
+table {
+	margin-top: 120px;
+	width: 50%;
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: left;
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+.countyInfoFirst {
+	display: flex;
+	justify-content: space-around;
+	border-bottom: medium;
+	text-align: center;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+.countyItemFirst {
+	flex: 1;
+	margin: 100px;
+}
+
+.countyItemFirst svg {
+	width: 250; /* Adjust the width of the circle as needed */
+	height: 250px; /*  Adjust the height of the circle as needed */
+	margin-bottom: 10px; /*  Adjust the margin as needed */
+}
+
+.countyItemFirst:hover svg {
+	transform: scale(1.1); /* 마우스 호버 시 이미지 크기를 1.1배로 확대 */
+	transition: transform 0.3s ease-in-out; /* 트랜지션 효과를 적용하여 부드러운 변화 */
+}
+
+/* 이미지 슬라이더 스타일 */
+.slider-container {
+	padding-top: 20px;
+	display: flex;
+	justify-content: space-around;
+	width: 90%;
+	height: 500px;
+	margin: auto;
+	justify-content: space-around;
+}
+
+.slider-container img {
+	width: 100%; /* 이미지를 슬라이더에 꽉 차게 표시 */
+	height: 500px;
+	margin: 0 auto;
+}
+
+.slider-container .navigation-buttons {
+	position: relative;
+}
+
+/* 이미지 슬라이더 버튼 */
+#prevBtn {
+	position: absolute;
+	bottom: 150px;
+	left: 0;
+}
+
+#nextBtn {
+	position: absolute;
+	bottom: 150px;
+	right: 15px;
+}
+
+.navigation-buttons img {
+	width: 100%; /* 이미지를 슬라이더에 꽉 차게 표시 */
+	height: auto;
+}
+
+/* 디테일 버튼 */
+.detail_button {
+	background-color: #888;
+	color: white;
+	border: none;
+	padding: 15px 30px; /* 크기 조절 */
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 18px; /* 크기 조절 */
+	margin-top: 15px; /* 간격 조절 */
+	cursor: pointer;
+	border-radius: 8px;
+}
+
+.detail_button:hover {
+	background-color: #555;
+}
+
+.details-box {
+	display: none;
+	position: absolute;
+	background-color: #fff;
+	padding: 15px;
+	border: 1px solid #333;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	z-index: 2; /* 다른 요소보다 위에 나타나도록 설정 */
+}
+
+/* 디테일 말풍선 가로 크기 설정*/
+.details-box p {
+	max-width: 300px;
+}
+
+.show-details {
+	display: block;
+}
+
+/* 기본 메뉴 버튼 스타일 */
+.menu-buttons {
+	display: flex;
+	margin-top: 10px;
+}
+
+.menu-button {
+	margin-left: 80px;
+	display: inline-block;
+	padding: 10px;
+	background-color: #333;
+	color: white;
+	text-decoration: none;
+	position: relative;
+}
+
+.menu-button ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.menu-buttons li {
+	white-space: pre-line; /* 자동 줄바꿈 적용 */
+	width: 200px; /* 너비를 200px로 지정 */
+	/* display: inline-block; */
+	padding: 20px 20px;
+	margin: 5px;
+	background-color: #3498db;
+	color: #fff;
+	text-decoration: none;
+	/* border: 1px solid #3498db;
+	border-radius: 50px; */
+	cursor: pointer;
+}
+
+.menu-buttons li:hover {
+	background-color: #f5f6f7;
+	border-color: #f5f6f7;
+	color: purple;
+}
+
+.menu-button:hover {
+	text-decoration: underline;
+}
+
+/* 드롭다운 메뉴의 숨겨진 상태 */
+.dropdown {
+	width: 200px;
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #000;
+	padding: 10px;
+	list-style: none;
+	margin: 0;
+	background-color: #000; /* 검은색 배경 */
+	color: #fff; /* 흰색 글씨 */
+}
+
+/* 호버 시 드롭다운 메뉴 보이도록 설정 */
+.menu-button:hover .dropdown {
+	display: block;
+}
+
+/* 각 드롭다운 항목의 스타일 */
+/* .dropdown li {
+	width: 150px;
+	padding: 5px;
+	color: white;
+	background-color: #000;
+} */
+.dropdown li {
+	width: 150px;
+	padding: 5px;
+	color: white;
+	background-color: #000;
+	list-style: none; /* 목록 기호 없애기 */
+}
+
+/* 하위 드롭다운 메뉴의 스타일 */
+.sub-menu {
+	left: 100%;
+	top: 0;
+	display: none;
+}
+
+/* 상위 메뉴에 호버 시 하위 드롭다운 메뉴 보이도록 설정 */
+.dropdown li:hover .sub-menu {
+	/* display: block; */
+	background-color: #333; /* 호버 시 어두운 배경으로 변경 */
+}
+
+/* 텍스트 주위에 그림자 효과 추가 */
+.dropdown li:hover a {
+	box-shadow: 0 0 5px rgba(255, 255, 255, 0.5); /* 텍스트 주위에 흰색 그림자 효과 */
+}
+
+/* 드롭다운 메뉴의 a 태그 스타일 설정 */
+.dropdown a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* .content {
+	padding: 20px;
+	margin-top: 80px; // Adjust this margin based on your header height 
+} */
+.content_area {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	opacity: 0.7;
+}
+
+.content_area_sub {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+#menu-button {
+	cursor: pointer;
+	font-size: 24px;
+	margin-right: 20px;
+	float: right;
+}
+
+#menu-button span {
+	display: block;
+	height: 3px;
+	width: 25px;
+	background-color: #333;
+	margin: 5px 0;
+	transition: 0.4s;
+}
+
+#menu-button.open span:nth-child(1) {
+	transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+#menu-button.open span:nth-child(2) {
+	opacity: 0;
+}
+
+#menu-button.open span:nth-child(3) {
+	transform: rotate(45deg) translate(-5px, -6px);
+}
+
+#banner_wrap {
+	width: 80%; /* 슬라이드 배너의 가로 크기 조절 */
+	margin: auto; /* 가운데 정렬을 위해 margin 사용 */
+}
+
+/* 와인종류 페이지*/
+.wine-type-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 20px;
+	margin-top: 50px;
+	max-width: 80%;
+}
+
+.wine-type-card {
+	width: 48%;
+	margin-bottom: 20px;
+	background-color: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease-in-out;
+	box-sizing: border-box;
+	display: flex;
+}
+
+.wine-type-card:hover {
+	transform: scale(1.05);
+}
+
+.wine-type-image {
+	width: 300px; /* 이미지의 가로 크기 */
+	height: 500px; /* 이미지의 세로 크기 */
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	overflow: hidden;
+}
+
+.wine-type-image>img {
+	width: 100%;
+	height: 480px;
+	margin: 0 auto;
+}
+
+.wine-type-description {
+	padding: 20px;
+	flex-grow: 1; /* 추가: 텍스트가 남은 공간을 모두 차지하도록 설정 */
+	position: relative;
+}
+
+.divfh h2 {
+	color: #333;
+	margin-bottom: 10px;
+}
+
+.divfh p {
+	color: #666;
+	margin: 0;
+	text-align: center;
+}
+
+.proglabel {
+	margin-right: 10px;
+}
+
+.progress {
+	width: 70%;
+	height: 20px;
+	background-color: #f0f0f0;
+	border-radius: 4px;
+	margin-top: 5px;
+}
+
+.progress-bar {
+	height: 100%;
+	text-align: center;
+	line-height: 20px;
+	color: #fff;
+	border-radius: 4px;
+	width: 100%;
+}
+
+.progress-bar.bg-success {
+	background-color: #28a745;
+}
+
+.progress-bar.bg-info {
+	background-color: #17a2b8;
+}
+
+.progress-bar.bg-warning {
+	background-color: #ffc107;
+}
+
+.progress-bar.bg-danger {
+	background-color: #dc3545;
+}
+
+/* 추천여행 페이지 */
+.card-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: stretch;
+	flex-wrap: wrap;
+	padding-top: 150px;
+}
+
+.card {
+	width: 18rem;
+	margin: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	display: flex; /* Flexbox를 이용하여 내부 내용을 가로로 나눕니다. */
+	flex-direction: column; /* 열 방향으로 나눕니다. */
+	background-color: #fff;
+	transition: transform 0.3s ease-in-out; /* 슬라이드 효과를 위한 트랜지션 속성 추가 */
+}
+
+.card-img-top {
+	max-height: 200px;
+	object-fit: cover;
+}
+
+.card-body {
+	text-align: center;
+	background-color: #fff; /* 텍스트 부분의 배경 색상을 흰색으로 설정합니다. */
+	padding: 16px;
+}
+
+.card-divider {
+	height: 1px;
+	background-color: #ddd; /* 구분선의 배경 색상을 설정합니다. */
+	margin: 10px 0; /* 구분선의 상하 여백을 추가합니다. */
+}
+
+.btn-primary {
+	margin-top: 10px;
+}
+
+.toast {
+	display: none;
+	position: fixed;
+	top: 100px;
+	right: 100px;
+	background-color: #333;
+	color: #fff;
+	padding: 16px;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	z-index: 999; /* 토스트 메시지가 다른 요소 위에 나타날 수 있도록 설정 */
+	transition: display 0.3s ease-in-out; /* 애니메이션 효과 추가 */
+}
+
+.tour-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.tour-content-item {
+	text-align: center;
+}
+
+/* 탭 스타일 */
+.tab-container {
+	max-width: 800px;
+	margin: 50px auto;
+	background-color: #fff;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	background-color: red;
+	overflow: hidden;
+}
+
+.tab {
+	flex: 1;
+	padding: 15px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+	background-color: #2980b9;
+}
+
+/* 탭 내용 스타일 */
+.tab-content {
+	display: none;
+	padding: 20px;
+}
+
+.tab-content.active {
+	display: block;
+}
+
+.panels img {
+	width: 30%;
+	height: 500px;
+	margin: 0 auto;
+	overflow: hidden;
+	content-align: center;
+}
+
+ .countyItem {
+  display: flex;
+}
+
+.firstVerticalBox, .secondVerticalBox {
+  flex: 2;
+  padding: 15px;
+  box-sizing: border-box;
+  border: 1px solid black; 
+  margin-right: 20px; 
+}
+
+.imageContainer {
+  max-width: 100%;
+/*   overflow: hidden; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageContainer img {
+  width: 600px; /* 가로 크기 조절 */
+  height: 500px; /* 세로 크기 조절 */
+  margin-bottom: 10px;
+}
+.imgSlide {
+	width: 600px;
+	height: 500px;
+	overflow: hidden;
+}
+.imgSlide ul {
+	width: 1200px;
+	float: left;
+	display: block;
+	padding: 0px;
+}
+.imgSlide ul li {
+	list-style: none;
+	float: left;
+}
+
+.textContent {
+  text-align: left;
+}
+
+
+.titleContainer {
+  text-align: center;
+  width: 100%;
+}
+
+.titleContainer h2 {
+  display: inline-block;
+  background-color: #f5f5f5; /* 배경색을 추가하여 가독성을 높임 (선택사항) */
+  padding: 5px;
+}

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/style.css">
+<title>My Winery Homepage</title>
+<link rel="stylesheet" href="../css/jquery.bxslider.css">
+<!-- bxSlider CSS file -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- bxSlider Javascript file -->
+<script src="../js/jquery.bxslider.min.js"></script>
+<script src="../js/common-script.js"></script>
+<script type="text/javascript">
+	function toggleDetails(countyNumber) {
+		const detailsBox = document
+				.getElementById(`details-box-${countyNumber}`);
+		detailsBox.classList.toggle('show-details');
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var detailButtons = document.querySelectorAll('.detail_button');
+		var detailsBoxes = document.querySelectorAll('.details-box');
+
+		// 디테일 버튼 클릭 이벤트
+		detailButtons.forEach(function(button, index) {
+			button.addEventListener('click', function() {
+				toggleDetails(index + 1);
+			});
+		});
+
+		// 문서의 다른 부분을 클릭할 때 말풍선 텍스트 상자가 사라지도록
+		document.addEventListener('click', function(event) {
+			var isClickInside = false;
+
+			detailButtons.forEach(function(button) {
+				isClickInside = isClickInside || button.contains(event.target);
+			});
+
+			detailsBoxes.forEach(function(box) {
+				isClickInside = isClickInside || box.contains(event.target);
+			});
+
+			if (!isClickInside) {
+				detailsBoxes.forEach(function(box) {
+					box.classList.remove('show-details');
+				});
+			}
+		});
+	});
+
+	const carousel = document.getElementById('carouselExampleControls');
+	const inner = document.querySelector('.carousel-inner');
+	const items = document.querySelectorAll('.carousel-item');
+	const prevBtn = document.getElementById('prevBtn');
+	const nextBtn = document.getElementById('nextBtn');
+
+	let currentIndex = 0;
+
+	function updateCarousel() {
+		inner.style.transform = `translateX(${-currentIndex * 100}%)`;
+	}
+
+	function showPrev() {
+		currentIndex = (currentIndex - 1 + items.length) % items.length;
+		updateCarousel();
+	}
+
+	function showNext() {
+		currentIndex = (currentIndex + 1) % items.length;
+		updateCarousel();
+	}
+
+	$(function() {
+		var mySlider = $('#slide_banner').bxSlider({
+			// 1. 기본적으로 4개 보이려면 
+			minSlides : 4, // 최소 노출 개수를 설정합니다.
+			maxSlides : 4, // 최대 노출 개수를 설정합니다.
+			slideMargin : 25, // 슬라이드간의 간격을 설정합니다.
+			slideWidth : 700, // 슬라이드 마다 너비 설정.
+
+			auto : true, // 자동으로 흐를지 설정합니다.
+			speed : 200, // 이동 속도를 설정합니다.
+			moveSlides : 1, // 슬라이드 이동시 갯수 설정.
+
+			// 기본값
+			mode : "horizontal", // 가로 수평으로 슬라이드 됩니다.
+			pager : false, // 현재 위치 페이징 표시 여부 설정.
+
+			autoHover : true, // 마우스 오버시 정시킬지 설정합니다.
+		});
+
+		//이전 버튼을 클릭하면 이전 슬라이드로 전환
+		$('#prevBtn').click(function() {
+			mySlider.goToPrevSlide();
+			return false; //<a>링크 차단
+		});
+
+		//다음 버튼을 클릭하면 다음 슬라이드로 전환
+		$('#nextBtn').click(function() {
+			mySlider.goToNextSlide();
+			return false; //<a>링크 차단
+		});
+	});
+
+	/* 	prevBtn.addEventListener('click', showPrev);
+	 nextBtn.addEventListener('click', showNext); */
+
+		function showToast(message) {
+			var toast = document.createElement('div');
+			toast.className = 'toast';
+			toast.innerHTML = message;
+
+			document.body.appendChild(toast);
+
+			toast.style.display = 'block';
+
+			setTimeout(function() {
+				toast.style.display = 'none';
+				document.body.removeChild(toast);
+			}, 5000);
+		}
+
+		// 페이지 로딩 후 토스트 메시지 예시
+		document.addEventListener('DOMContentLoaded', function() {
+			showToast('Welcome!');
+		});
+	 
+</script>
+</head>
+<body>
+	<header>
+		<h1 id="mainLink" style="cursor: pointer;"><img src="../images/myIcons/Icon_main.png">WINERY</h1>
+		<div class="menu-buttons">
+			<div class="menu-button">
+				와이너리 소개
+				<ul class="dropdown">
+					<li id="info_north">북미</li>
+					<li id="info_south">남미</li>
+					<li id="info_eu">유럽</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				와인 종류
+				<ul class="dropdown">
+					<li id="wine_light">가볍게 즐기는 와인</li>
+					<li id="wine_dark">진하고 무거운 와인</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				테마별 여행 코스 추천
+				<ul class="dropdown">
+					<li id="route_healing">힐링 코스</li>
+					<li id="route_tasty">맛있는 코스</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<div class="countyInfoFirst">
+			<div class="countyItemFirst">
+				<svg class="bd-placeholder-img rounded-circle"
+					xmlns="http://www.w3.org/2000/svg" role="img"
+					aria-label="Placeholder: 250x250"
+					preserveAspectRatio="xMidYMid meet" focusable="false">
+		          <!-- 여기에 이미지를 추가할 수 있습니다 -->
+		          <image href="../images/myImages/(1)cantenac.png" x="20"
+						y="0" width="250" height="250" preserveAspectRatio="xMidYMid meet" />
+								<!-- <image href="./images/myImages/(1)california.png" x="0" y="0"
+								width="200" height="200" preserveAspectRatio="xMidYMid meet" /> -->
+		         </svg>
+				<h2><a href="https://www.chateau-cantenac.fr/" style="cursor: pointer;">샤또 깡뜨냑<br/>(Chateau Cantenac)</a></h2>
+				<p>유럽/프랑스</p>
+				<!--  <button class="detail_button" onclick="toggleDetails(1)">View details</button> -->
+				<button class="detail_button" data-county-number="1">View
+					details</button>
+				<div class="details-box" id="details-box-1">
+					<!-- 말풍선 텍스트 상자 내용 -->
+					<p>샤토 깡뜨냑은 마고(Margaux) 지역에 위치한 포도원으로, 1855년에 보르도 그랑크뤼 클라세 2등급으로 지정되었다. 
+					1855년 그리고 1859년의 세계 박람회는, 제품들이 “상품화” “브랜드”화 하던 중요한 시기였는데, 당시 프랑스 정부는 포도주를 프랑스를 대표하는 중요한 제품으로 
+					생각했으며 그것을 체계화하고자 했다. 그렇게 정해진 것이 보르도 그랑크뤼 클라세인데, 당시 정부의 현명한 판단으로, 보르도 그랑크뤼 클라세는 전세계 고급 와인의 
+					표준처럼 여겨진다. 당시 정해진 샤토들은 몇 번의 예를 제외하고는 거의 변함이 없다. 담당자가 원장에 글씨를 크게 쓰는 바람에, 자리가 모자라 빠졌던 샤토 컹트메를(Château Cantemerle), 1976년에 2등급으로 올라간 샤토 무통 로칠드(Château Mouton Rothschild), 
+					포도원이 망하고 다른 샤토들로 흡수된 샤토 뒤비뇽 탈보(Château Dubignon-Talbot) 만 제외하고는 나머지 모두 거의 그 모습을 유지하고 있다.</p>
+				</div>
+			</div>
+
+			<div class="countyItemFirst">
+				<svg class="bd-placeholder-img rounded-circle"
+					xmlns="http://www.w3.org/2000/svg" role="img"
+					aria-label="Placeholder: 250x250"
+					preserveAspectRatio="xMidYMid slice" focusable="false">
+          <!-- 여기에 이미지를 추가할 수 있습니다 -->
+           <image href="../images/myImages/(2)freixer.png" x="20" y="0"
+						width="250" height="250" preserveAspectRatio="xMidYMid slice" />
+        </svg>
+				<h2><a href="https://freixenet.com/es/" style="cursor: pointer;">프레시넷<br/>(Freixenet)</a></h2>
+				<p>유럽/포르투갈</p>
+				<button class="detail_button" data-county-number="2">View
+					details</button>
+				<div class="details-box" id="details-box-2">
+					<!-- 말풍선 텍스트 상자 내용 -->
+					<p>프레시넷(Freixenet)은 스페인의 가장 큰 스파클링 와인- 까바(Cava) - 생산자 중 하나로서, 
+					품질이나 생산량 측면에서 프랑스의 모엣샹동(France's Moet & Chandon)으로 불리운다. 1914년 출범하였으며, 
+					13세기 알트 페네데스(Alt Penedes) 지역에서 와인을 오랫동안 생산해 온 페레 가문(La Freixenada의 아들인 Pere Ferrer Bosch)과 살라 가문의 결혼으로 시작되었다. 
+					프레시넷 브랜드는 1915년 시작되었다. 1985년 부터는 프랑스의 샴페인 생산자인 메종 앙리아벨(Maison Henri Abele)를 인수하고 미국, 중국, 
+					멕시코에도 와인 생산을 위해 투자하고 있다. 까바를 만들기 위한 주요 재배 품종은 Macabeo, Parellada, Xarelo 등이다.</p>
+				</div>
+			</div>
+
+			<div class="countyItemFirst">
+				<svg class="bd-placeholder-img rounded-circle"
+					xmlns="http://www.w3.org/2000/svg" role="img"
+					aria-label="Placeholder: 250x250"
+					preserveAspectRatio="xMidYMid slice" focusable="false">
+          <!-- 여기에 이미지를 추가할 수 있습니다 -->
+          <image href="../images/myImages/(3)newyork.png" x="20" y="0"
+						width="250" height="250" preserveAspectRatio="xMidYMid slice" />
+        </svg>
+				<h2><a href="https://www.sandeman.com/" style="cursor: pointer;">샌드맨<br/>(SANDEMAN)</a></h2>
+				<p>미국/뉴욕</p>
+				<button class="detail_button" data-county-number="3">View details</button>
+				<div class="details-box" id="details-box-3">
+					<!-- 말풍선 텍스트 상자 내용 -->
+					<p>1790년 스코틀랜드 출신의 조지 샌드맨이 설립한 세계적인 포트와인 브랜드 '샌드맨'의 역사와 와인의 종류, 
+					생산 과정에 대하여 알아볼 수 있다. 샌드맨의 트레이드 마크인 중절모와 검은 망토를 걸친 가이드에 의해 투어가 진행되며, 관련 영상도 제공한다. 
+					투어를 마친 뒤에는 이용한 프로그램에 따라 다른 종류의 포트와인을 맛볼 수 있다.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="slider-container">
+			<div id=bx-wrapper>
+				<ul id="slide_banner">
+					<li><a href="#"><img
+							src="../images/myImages/chateuCatnac_1.png" alt="사진1" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/chateuCatnac_2.png" alt="사진2" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/chateuCatnac_3.png" alt="사진3" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/freixenetWinery_1.png" alt="사진1" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/freixenetWinery_2.png" alt="사진2" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/freixenetWinery_3.png" alt="사진3" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/sandemanWinery_1.png" alt="사진1" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/sandemanWinery_2.png" alt="사진2" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/sandemanWinery_3.png" alt="사진3" /></a></li>
+				</ul>
+
+				<div class="navigation-buttons">
+					<p>
+						<a href="#" id="prevBtn"><img
+							src="../images/myIcons/prev_btn.png" alt="이전버튼" /></a>
+					</p>
+					<p>
+						<a href="#" id="nextBtn"><img
+							src="../images/myIcons/next_btn.png" alt="다음버튼" /></a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- Your page content goes here -->
+	<footer>
+		<p>©copy right by jangkiki</p>
+	</footer>
+</body>
+</html>
+

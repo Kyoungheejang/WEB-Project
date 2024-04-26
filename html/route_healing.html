@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- 플러그인 CSS -->
+<link rel="stylesheet" href="../plugin/jquery-ui-1.7.2.custom.css"
+	type="text/css" media="screen" charset="utf-8" />
+
+<!-- JQuery 라이브러리-->
+<script src="../js/jquery-1.9.1.min.js"></script>
+
+<!-- UI 플러그인 추가 -->
+<script type="text/javascript"
+	src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+
+<!-- 사용자 JS 파일 -->
+<script type="text/javascript" src="../js/jquery.js"></script>
+
+<title>My Winery Homepage</title>
+<script src="../js/common-script.js"></script>
+<script src="../js/route-slider.js"></script>
+<script type="text/javascript">
+	
+	function showToast(message) {
+		var toast = document.createElement('div');
+		toast.className = 'toast';
+		toast.innerHTML = message;
+
+		document.body.appendChild(toast);
+
+		toast.style.display = 'block';
+
+		setTimeout(function() {
+			toast.style.display = 'none';
+			document.body.removeChild(toast);
+		}, 5000);
+	}
+
+	// 페이지 로딩 후 토스트 메시지 예시
+	document.addEventListener('DOMContentLoaded', function() {
+		showToast('Welcome!');
+	});
+	
+</script>
+</head>
+<body>
+	<header>
+		<h1 id="mainLink" style="cursor: pointer;">
+			<img src="../images/myIcons/Icon_main.png">WINERY
+		</h1>
+		<div class="menu-buttons">
+			<div class="menu-button">
+				와이너리 소개
+				<ul class="dropdown">
+					<li id="info_north">북미</li>
+					<li id="info_south">남미</li>
+					<li id="info_eu">유럽</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				와인 종류
+				<ul class="dropdown">
+					<li id="wine_light">가볍게 즐기는 와인</li>
+					<li id="wine_dark">진하고 무거운 와인</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				테마별 여행 코스 추천
+				<ul class="dropdown">
+					<li id="route_healing">힐링 코스</li>
+					<li id="route_tasty">맛있는 코스</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="countyInfo">
+			<div class="countyItem">
+				<div class="firstVerticalBox">
+					<div class="titleContainer">
+						<h2>무어크릭공원(Moore Creek Park)</h2>
+					</div>
+					<div class="imageContainer">
+						<img src="../images/myImages/naparoute_1.png">
+						<div class="imgSlide">
+							<ul>
+								<li><img src="../images/myImages/naparoute_1_1.png"></li>
+								<li><img src="../images/myImages/naparoute_1_2.png"></li>
+							</ul>
+						</div>
+					</div>
+					<div class="textContent">
+						</br> <b>위치:</b> 2602 Chiles Pope Valley Rd, St Helena, CA 94574 미국 </br> <b>설명:</b>
+						무어 크릭 공원(Moore Creek Park)은 하이킹이나 산악자전거를 즐기기에 좋은 장소입니다. 특히 약간의 비가
+						내린 후에는 개울과 작은 폭포가 흐르는 모습을 볼 수 있습니다.
+					</div>
+				</div>
+
+				<div class="secondVerticalBox">
+					<div class="titleContainer">
+						<h2>까스까따 두아스 께다스(Cascata duas quedas)</h2>
+					</div>
+					<div class="imageContainer">
+						<img src="../images/myImages/brasilMiolo_4.png"> 
+						<div class="imgSlide">
+							<ul>
+								<li><img src="../images/myImages/brasilMiolo_1.JPG"></li>
+								<li><img src="../images/myImages/brasilMiolo_2.JPG"></li>
+								<li><img src="../images/myImages/brasilMiolo_3.JPG"></li>
+							</ul>
+						</div>
+					</div>
+					<div class="textContent">
+						</br> <b>위치:</b> Linha Leopoldina, KM 6, S/n - Vale dos Vinhedos, Bento
+						Gonçalves - RS, 95711-000 브라질</br> <b>설명:</b> Riozinho/RS 지역에 위치한 아름다운
+						폭포로, 유칼립투스 숲과 녹지 그리고 신선한 공기가 가득한 계곡입니다.
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+	<footer>
+		<p>©copy right by jangkiki</p>
+	</footer>
+</body>
+</html>

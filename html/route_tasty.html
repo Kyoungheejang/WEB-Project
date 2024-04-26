@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/style.css">
+
+<!-- 플러그인 CSS -->
+<link rel="stylesheet" href="../plugin/jquery-ui-1.7.2.custom.css"
+	type="text/css" media="screen" charset="utf-8" />
+
+<!-- JQuery 라이브러리-->
+<script src="../js/jquery-1.9.1.min.js"></script>
+
+<!-- UI 플러그인 추가 -->
+<script type="text/javascript"
+	src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+
+<!-- 사용자 JS 파일 -->
+<script type="text/javascript" src="../js/jquery.js"></script>
+
+<title>My Winery Homepage</title>
+<script src="../js/common-script.js"></script>
+<script src="../js/route-slider.js"></script>
+<script type="text/javascript">
+
+	function showToast(message) {
+		var toast = document.createElement('div');
+		toast.className = 'toast';
+		toast.innerHTML = message;
+
+		document.body.appendChild(toast);
+
+		toast.style.display = 'block';
+
+		setTimeout(function() {
+			toast.style.display = 'none';
+			document.body.removeChild(toast);
+		}, 5000);
+	}
+
+	// 페이지 로딩 후 토스트 메시지 예시
+	document.addEventListener('DOMContentLoaded', function() {
+		showToast('Welcome!');
+	});
+
+</script>
+</head>
+<body>
+	<header>
+		<h1 id="mainLink" style="cursor: pointer;">
+			<img src="../images/myIcons/Icon_main.png">WINERY
+		</h1>
+		<div class="menu-buttons">
+			<div class="menu-button">
+				와이너리 소개
+				<ul class="dropdown">
+					<li id="info_north">북미</li>
+					<li id="info_south">남미</li>
+					<li id="info_eu">유럽</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				와인 종류
+				<ul class="dropdown">
+					<li id="wine_light">가볍게 즐기는 와인</li>
+					<li id="wine_dark">진하고 무거운 와인</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				테마별 여행 코스 추천
+				<ul class="dropdown">
+					<li id="route_healing">힐링 코스</li>
+					<li id="route_tasty">맛있는 코스</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="countyInfo">
+			<div class="countyItem">
+				<div class="firstVerticalBox">
+					<div class="titleContainer">
+						<h2>바깔류에이루(Bacalhoeiro)</h2>
+					</div>
+					<div class="imageContainer">
+						<img src="../images/myImages/portugalSandeman_6.png"> 
+						<div class="imgSlide">
+							<ul>
+								<li><img src="../images/myImages/portugalSandeman_1.png"> </li>
+								<li><img src="../images/myImages/portugalSandeman_2.png"></li>
+								<li><img src="../images/myImages/portugalSandeman_3.png"></li>
+								<li><img src="../images/myImages/portugalSandeman_4.png"></li>
+								<li><img src="../images/myImages/portugalSandeman_5.png"></li>
+							</ul>
+						</div>
+					</div>
+					<div class="textContent">
+						</br>
+						<b>위치:</b> Av. de Diogo Leite 74, 4400-111 Vila Nova de Gaia, 포르투갈 </br> 
+						<b>설명:</b> 대구 요리 전문 레스토랑
+					</div>
+				</div>
+
+				<div class="secondVerticalBox">
+					<div class="titleContainer">
+						<h2>끄레센도 레스토랑(Crescendo Restaurant)</h2>
+					</div>
+					<div class="imageContainer">
+						<img src="../images/myImages/franceChateau_5.png"> 
+						<div class="imgSlide">
+							<ul>
+								<li><img src="../images/myImages/franceChateau_1.JPG"> </li>
+								<li><img src="../images/myImages/franceChateau_2.JPG"> </li>
+								<li><img src="../images/myImages/franceChateau_3.JPG"> </li>
+								<li><img src="../images/myImages/franceChateau_4.JPG"> </li>
+							</ul>
+						</div>
+					</div>
+					<div class="textContent">
+					</br>
+						<b>위치:</b> Centre Commercial Carrefour, 118 Av. du Général de Gaulle, 33500 Libourne, 프랑스 </br> 
+						<b>설명:</b> 비건 음식점  
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+	<footer>
+		<p>©copy right by jangkiki</p>
+	</footer>
+</body>
+</html>

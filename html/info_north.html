@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/style.css">
+<title>My Winery Homepage</title>
+<link rel="stylesheet" href="../css/jquery.bxslider.css">
+<!-- bxSlider CSS file -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- bxSlider Javascript file -->
+<script src="../js/jquery.bxslider.min.js"></script>
+<script src="../js/common-script.js"></script>
+<script type="text/javascript">
+	function toggleDetails(countyNumber) {
+		const detailsBox = document
+				.getElementById(`details-box-${countyNumber}`);
+		detailsBox.classList.toggle('show-details');
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var detailButtons = document.querySelectorAll('.detail_button');
+		var detailsBoxes = document.querySelectorAll('.details-box');
+
+		// 디테일 버튼 클릭 이벤트
+		detailButtons.forEach(function(button, index) {
+			button.addEventListener('click', function() {
+				toggleDetails(index + 1);
+			});
+		});
+
+		// 문서의 다른 부분을 클릭할 때 말풍선 텍스트 상자가 사라지도록
+		document.addEventListener('click', function(event) {
+			var isClickInside = false;
+
+			detailButtons.forEach(function(button) {
+				isClickInside = isClickInside || button.contains(event.target);
+			});
+
+			detailsBoxes.forEach(function(box) {
+				isClickInside = isClickInside || box.contains(event.target);
+			});
+
+			if (!isClickInside) {
+				detailsBoxes.forEach(function(box) {
+					box.classList.remove('show-details');
+				});
+			}
+		});
+	});
+
+	const carousel = document.getElementById('carouselExampleControls');
+	const inner = document.querySelector('.carousel-inner');
+	const items = document.querySelectorAll('.carousel-item');
+	const prevBtn = document.getElementById('prevBtn');
+	const nextBtn = document.getElementById('nextBtn');
+
+	let currentIndex = 0;
+
+	function updateCarousel() {
+		inner.style.transform = `translateX(${-currentIndex * 100}%)`;
+	}
+
+	function showPrev() {
+		currentIndex = (currentIndex - 1 + items.length) % items.length;
+		updateCarousel();
+	}
+
+	function showNext() {
+		currentIndex = (currentIndex + 1) % items.length;
+		updateCarousel();
+	}
+
+	$(function() {
+		var mySlider = $('#slide_banner').bxSlider({
+			// 1. 기본적으로 4개 보이려면 
+			minSlides : 4, // 최소 노출 개수를 설정합니다.
+			maxSlides : 4, // 최대 노출 개수를 설정합니다.
+			slideMargin : 25, // 슬라이드간의 간격을 설정합니다.
+			slideWidth : 700, // 슬라이드 마다 너비 설정.
+
+			auto : true, // 자동으로 흐를지 설정합니다.
+			speed : 200, // 이동 속도를 설정합니다.
+			moveSlides : 1, // 슬라이드 이동시 갯수 설정.
+
+			// 기본값
+			mode : "horizontal", // 가로 수평으로 슬라이드 됩니다.
+			pager : false, // 현재 위치 페이징 표시 여부 설정.
+
+			autoHover : true, // 마우스 오버시 정시킬지 설정합니다.
+		});
+
+		//이전 버튼을 클릭하면 이전 슬라이드로 전환
+		$('#prevBtn').click(function() {
+			mySlider.goToPrevSlide();
+			return false; //<a>링크 차단
+		});
+
+		//다음 버튼을 클릭하면 다음 슬라이드로 전환
+		$('#nextBtn').click(function() {
+			mySlider.goToNextSlide();
+			return false; //<a>링크 차단
+		});
+	});
+
+	/* 	prevBtn.addEventListener('click', showPrev);
+	 nextBtn.addEventListener('click', showNext); */
+
+		function showToast(message) {
+			var toast = document.createElement('div');
+			toast.className = 'toast';
+			toast.innerHTML = message;
+
+			document.body.appendChild(toast);
+
+			toast.style.display = 'block';
+
+			setTimeout(function() {
+				toast.style.display = 'none';
+				document.body.removeChild(toast);
+			}, 5000);
+		}
+
+		// 페이지 로딩 후 토스트 메시지 예시
+		document.addEventListener('DOMContentLoaded', function() {
+			showToast('Welcome!');
+		});
+	 
+</script>
+</head>
+<body>
+		<header>
+	<h1 id="mainLink" style="cursor: pointer;"><img src="../images/myIcons/Icon_main.png">WINERY</h1>
+		<div class="menu-buttons">
+			<div class="menu-button">
+				와이너리 소개
+				<ul class="dropdown">
+					<li id="info_north">북미</li>
+					<li id="info_south">남미</li>
+					<li id="info_eu">유럽</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				와인 종류
+				<ul class="dropdown">
+					<li id="wine_light">가볍게 즐기는 와인</li>
+					<li id="wine_dark">진하고 무거운 와인</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				테마별 여행 코스 추천
+				<ul class="dropdown">
+					<li id="route_healing">힐링 코스</li>
+					<li id="route_tasty">맛있는 코스</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+	<main>
+		<div class="countyInfoFirst">
+			<div class="countyItemFirst">
+				<svg class="bd-placeholder-img rounded-circle"
+					xmlns="http://www.w3.org/2000/svg" role="img"
+					aria-label="Placeholder: 250x250"
+					preserveAspectRatio="xMidYMid meet" focusable="false">
+		          <!-- 여기에 이미지를 추가할 수 있습니다 -->
+		          <image href="../images/myImages/(1)california.png" x="20"
+						y="0" width="250" height="250" preserveAspectRatio="xMidYMid meet" />
+								<!-- <image href="./images/myImages/(1)california.png" x="0" y="0"
+								width="200" height="200" preserveAspectRatio="xMidYMid meet" /> -->
+		         </svg>
+				<h2><a href="https://www.visitnapavalley.com/wineries/" style="cursor: pointer;">나파밸리<br/>(Napa Valley)</a></h2>
+				<p>미국/캘리포니아</p>
+				<!--  <button class="detail_button" onclick="toggleDetails(1)">View details</button> -->
+				<button class="detail_button" data-county-number="1">View
+					details</button>
+				<div class="details-box" id="details-box-1">
+					<!-- 말풍선 텍스트 상자 내용 -->
+					<p>가장 유명하고, 가장 관광화가 잘 되어 있으며, 가장 많은 사람들이 찾는 곳이다. 그리고 가장 비싸다.
+						하지만 사람들이 유명하고 큰 놀이공원에 일부러 찾아가는 이유는 분명히 있을 것이다. 미국의 모든 와인 투어리즘의 기본이
+						되는 곳이니, 가장 먼저, 혹은 한 번쯤은 꼭 들러봄직한 곳이다. 샌프란시스코 공항에서 2시간 거리에 있다. 멋진
+						레스토랑과 숙소도 많지만 항상 예약은 빨리하는 것을 추천한다. 나파(Napa)가 중심 도시로, 이곳에서 밸리를 달리는
+						와인 기차도 탑승할 수 있다.</p>
+				</div>
+			</div>
+
+			<div class="countyItemFirst">
+				<svg class="bd-placeholder-img rounded-circle"
+					xmlns="http://www.w3.org/2000/svg" role="img"
+					aria-label="Placeholder: 250x250"
+					preserveAspectRatio="xMidYMid slice" focusable="false">
+          <!-- 여기에 이미지를 추가할 수 있습니다 -->
+           <image href="../images/myImages/(2)portland.png" x="20" y="0"
+						width="250" height="250" preserveAspectRatio="xMidYMid slice" />
+        </svg>
+				<h2><a href="https://www.oregonwine.org/" style="cursor: pointer;">윌라메트밸리<br/>(Willamette Valley)</a></h2>
+				<p>미국/포틀랜드</p>
+				<button class="detail_button" data-county-number="2">View
+					details</button>
+				<div class="details-box" id="details-box-2">
+					<!-- 말풍선 텍스트 상자 내용 -->
+					<p>캘리포니아주 위에 위치한 오리건주는 뛰어난 자연환경과 분위기(vibe)로 미국 내에서도 가장 쿨(cool)한
+						지역으로 뽑힌다. 물론 기후도 캘리포니아보다 훨씬 서늘해 피노누아 및 화이트 품종들을 주 품종으로 삼고 있다. 그중
+						핵심지역인 윌라메트 밸리에서는 미국 최고의 피노누아 와인들을 맛볼 수 있다. 포틀랜드(Portland)에서 가볍게 당일
+						여행도 가능하고 작지만 귀여운 숙소들에서 머물 수도 있다. 가장 자연친화적이고 동물 친화적인(반 이상의 와이너리에서
+						애완견을 데리고 갈 수 있다) 와인지역이다. 참고로 오리건은 미국 최고의 수제 맥주 메카이기도 하다.</p>
+				</div>
+			</div>
+
+			<div class="countyItemFirst">
+				<svg class="bd-placeholder-img rounded-circle"
+					xmlns="http://www.w3.org/2000/svg" role="img"
+					aria-label="Placeholder: 250x250"
+					preserveAspectRatio="xMidYMid slice" focusable="false">
+          <!-- 여기에 이미지를 추가할 수 있습니다 -->
+          <image href="../images/myImages/(3)newyork.png" x="20" y="0"
+						width="250" height="250" preserveAspectRatio="xMidYMid slice" />
+        </svg>
+				<h2><a href="https://newyorkwines.org/" style="cursor: pointer;">핑거레이크스<br/>(Finger Lakes)</a></h2>
+				<p>미국/뉴욕</p>
+				<button class="detail_button" data-county-number="3">View details</button>
+				<div class="details-box" id="details-box-3">
+					<!-- 말풍선 텍스트 상자 내용 -->
+					<p>뉴욕주에서 가장 유명한 와인 산지이다. 손가락 모양처럼 생긴 여러 호수 주변에 많은 와이너리들이 위치한다.
+						풍경이 좋은 와인 산지의 대표격이다. 리즐링이 주된 품종으로 몇몇 와이너리는 미국 최고의 리즐링 와인을 생산한다.
+						왓킨스 글랜(Watkins Glen)과 여러 폭포 등 주변에 자연 풍광을 구경할 거리도 가득하다. 뉴욕시에서 5-6시간
+						정도 거리에 있다. 만일 시간이 부족해 뉴욕시에서 당일 와이너리 여행을 하고 싶다면 롱아일랜드(Long
+						Islands)에 위치한 와이너리들을 방문하는 것도 좋다.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="slider-container">
+			<div id=bx-wrapper>
+				<ul id="slide_banner">
+					<li><a href="#"><img
+							src="../images/myImages/napavalley_1.png" alt="사진1" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/napavalley_2.png" alt="사진2" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/napavalley_3.png" alt="사진3" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/napavalley_4.png" alt="사진4" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/napavalley_5.png" alt="사진5" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/FingerLakes_1.png" alt="사진5" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/FingerLakes_2.png" alt="사진5" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/FingerLakes_3.png" alt="사진5" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/FingerLakes_4.png" alt="사진5" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/FingerLakes_5.png" alt="사진5" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/WillametteValley_1.png" alt="사진5" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/WillametteValley_2.png" alt="사진5" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/WillametteValley_3.png" alt="사진5" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/WillametteValley_4.png" alt="사진5" /></a></li>
+					<li><a href="#"><img
+							src="../images/myImages/WillametteValley_5.png" alt="사진5" /></a></li>
+				</ul>
+
+				<div class="navigation-buttons">
+					<p>
+						<a href="#" id="prevBtn"><img
+							src="../images/myIcons/prev_btn.png" alt="이전버튼" /></a>
+					</p>
+					<p>
+						<a href="#" id="nextBtn"><img
+							src="../images/myIcons/next_btn.png" alt="다음버튼" /></a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</main>
+	<!-- Your page content goes here -->
+	<footer>
+		<p>©copy right by jangkiki</p>
+	</footer>
+</body>
+</html>
+

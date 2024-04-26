@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/style.css">
+<title>My Winery Homepage</title>
+</head>
+<script type="text/javascript">
+
+	function showToast(message) {
+		var toast = document.createElement('div');
+		toast.className = 'toast';
+		toast.innerHTML = message;
+
+		document.body.appendChild(toast);
+
+		toast.style.display = 'block';
+
+		setTimeout(function() {
+			toast.style.display = 'none';
+			document.body.removeChild(toast);
+		}, 5000);
+	}
+
+	// 페이지 로딩 후 토스트 메시지 예시
+	document.addEventListener('DOMContentLoaded', function() {
+		showToast('Welcome!');
+	});
+</script>
+<body>
+<script src="../js/common-script.js"></script>
+	<header>
+		<h1 id="mainLink" style="cursor: pointer;"><img src="../images/myIcons/Icon_main.png">WINERY</h1>
+		<div class="menu-buttons">
+			<div class="menu-button">
+				와이너리 소개
+				<ul class="dropdown">
+					<li id="info_north">북미</li>
+					<li id="info_south">남미</li>
+					<li id="info_eu">유럽</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				와인 종류
+				<ul class="dropdown">
+					<li id="wine_light">가볍게 즐기는 와인</li>
+					<li id="wine_dark">진하고 무거운 와인</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				테마별 여행 코스 추천
+				<ul class="dropdown">
+					<li id="route_healing">힐링 코스</li>
+					<li id="route_tasty">맛있는 코스</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="wine-type-container">
+			<div class="wine-type-card">
+				<div class="wine-type-image">
+					<img src="../images/myImages/Willa_4.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">그리팅스 2021(Greetings Wine Co. 2021)</h2>
+					<p class="divfh">Greetings Rose은 가볍게 즐길 수 있는 맛. 예상치 못한 흥미진진한 미묘함과 산뜻한 맛을 느낄 수 있습니다.</p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 30%;">30%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 60%;">60%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 13.1%;">13.1%</div>
+					</div>
+					<ul>
+					<li>원산지: 미국/포틀랜드(Oregon)</li>
+					<li>가격: 18000원</li>
+					<li>특징: 산뜻함</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="wine-type-card">
+				<div class="wine-type-image">
+					<img src="../images/myImages/miolo_5.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">미올로 셀레상 로제(Miolo Seleccao Rose)</h2>
+					<p class="divfh">미올로 셀레상 로제(Miolo Selecao Rose)는 가볍고, 상쾌한 맛이 강한 와인입니다.</p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 30%;">30%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 55%;">55%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 12%;">12%</div>
+					</div>
+					<ul>
+					<li>원산지: 남미/브라질(Campanha Gaucha)</li>
+					<li>가격: 19000원</li>
+					<li>특징: 상쾌함</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="wine-type-card">
+				<div class="wine-type-image">
+					<img src="../images/myImages/concha_4.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">콘샤 이 토로 프론테라 샤도네이(Concha Y Toro Frontera Chardonnay)</h2>
+					<p class="divfh">신선하고 달콤함이 가미된 프론테라 샤도네이는 큰 나무 그늘처럼 상쾌하고 단순한 즐거움을 선사합니다.</p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 30%;">30%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 60%;">60%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 13%;">13%</div>
+					</div>
+					<ul>
+					<li>원산지: 남미/아르헨티나(Valle Central)</li>
+					<li>가격: 10000원</li>
+					<li>특징: 단순한 즐거움</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="wine-type-card"  margin-left: auto;">
+				<div class="wine-type-image">
+					<img src="../images/myImages/freixenet_1.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">프레시넷 뀌베 드 프레스티지(Freixenet Cuvee De Prestige)</h2>
+					<p class="divfh">시트러스(감귤류), 열대과일, 그리고 이스트 향이 조화를 이룹니다.</p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 20%;">20%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 80%;">80%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 13%;">13%</div>
+					</div>
+					<ul>
+					<li>원산지: 유럽/스페인(Cataluna)</li>
+					<li>가격: 25000원</li>
+					<li>특징: 프레쉬하면서도 부드러운 버블이 입 안에서 기분 좋게 퍼짐</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="wine-type-card"  margin-left: auto;">
+				<div class="wine-type-image">
+					<img src="../images/myImages/catena_4.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">2014 카테나 자파타 샤도네이(2014 Catena Zapata 'Catena' Chardonnay)</h2>
+					<p class="divfh">푸른기가 도는 황금색을 띄며 바닐라, 토스트, 열대 과일, 감귤류 향을 느낄 수 있습니다.</p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 20%;">20%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 60%;">60%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 13%;">13%</div>
+					</div>
+					<ul>
+					<li>원산지: 남미/아르헨티나</li>
+					<li>가격:</li>
+					<li>특징: 크리미한 잘 익은 배, 파인애플의 맛이 폭발적이며 풍성하고 부드러운 맛</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="wine-type-card"  margin-left: auto;">
+				<div class="wine-type-image">
+					<img src="../images/myImages/Finger_2.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">코우카 레이크 비니야드(Keuka Lake Vineyards 2019)</h2>
+					<p class="divfh"> 옅은 색상과 비교적 가벼운 바디에 높은 산도, 스파이시한 맛, 붉은 과일 향이 매력적입니다. </p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 20%;">20%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 80%;">80%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 13%;">13%</div>
+					</div>
+					<ul>
+					<li>원산지: 미국/뉴욕</li>
+					<li>가격: 30000원</li>
+					<li>특징: 붉은 과일 향이 풍성함</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		
+
+	</main>
+
+
+	<!-- Your page content goes here -->
+	<footer>
+		<p>©copy right by jangkiki</p>
+	</footer>
+</body>
+</html>
+

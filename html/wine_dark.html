@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/style.css">
+<title>My Winery Homepage</title>
+</head>
+<script type="text/javascript">
+
+	function showToast(message) {
+		var toast = document.createElement('div');
+		toast.className = 'toast';
+		toast.innerHTML = message;
+
+		document.body.appendChild(toast);
+
+		toast.style.display = 'block';
+
+		setTimeout(function() {
+			toast.style.display = 'none';
+			document.body.removeChild(toast);
+		}, 5000);
+	}
+
+	// 페이지 로딩 후 토스트 메시지 예시
+	document.addEventListener('DOMContentLoaded', function() {
+		showToast('Welcome!');
+	});
+</script>
+<body>
+<script src="../js/common-script.js"></script>
+	<header>
+		<h1 id="mainLink" style="cursor: pointer;"><img src="../images/myIcons/Icon_main.png">WINERY</h1>
+		<div class="menu-buttons">
+			<div class="menu-button">
+				와이너리 소개
+				<ul class="dropdown">
+					<li id="info_north">북미</li>
+					<li id="info_south">남미</li>
+					<li id="info_eu">유럽</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				와인 종류
+				<ul class="dropdown">
+					<li id="wine_light">가볍게 즐기는 와인</li>
+					<li id="wine_dark">진하고 무거운 와인</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				테마별 여행 코스 추천
+				<ul class="dropdown">
+					<li id="route_healing">힐링 코스</li>
+					<li id="route_tasty">맛있는 코스</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<main>
+		<div class="wine-type-container">
+			<div class="wine-type-card">
+				<div class="wine-type-image">
+					<img src="../images/myImages/catena_5.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">까테나 까베르네 소비뇽(Catena Cabernet Sauvignon 2011)</h2>
+					<p class="divfh"> 검은빛이 도는 어두운 자주색을 띠고 레드베리, 블랙페퍼의 아로마를 느낄 수 있으며 다양한 고기요리와 즐기면 좋을 와인입니다.</p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 10%;">10%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 70%;">70%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 14%;">14%</div>
+					</div>
+					<ul>
+					<li>원산지:  남미/아르헨티나(Valle Central)</li>
+					<li>가격: 39000원</li>
+					<li>특징: 견고함과 세련된 맛</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="wine-type-card">
+				<div class="wine-type-image">
+					<img src="../images/myImages/chateu_2.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">샤또마고(Chateau Margaux)</h2>
+					<p class="divfh">짙은 루비 컬러를 띠며, 클랙커런트, 블랙베리, 야생딸기, 바이올렛, 블랙페퍼, 장미 향이 강한 와인입니다.</p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 10%;">10%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 60%;">60%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 14%;">14%</div>
+					</div>
+					<ul>
+					<li>원산지: 유럽/프랑스(Bordeaux)</li>
+					<li>가격: 900000원</li>
+					<li>특징: 우아함</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="wine-type-card">
+				<div class="wine-type-image">
+					<img src="../images/myImages/concha_1.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">까시에로 델 디아블로 메를로(Casillero del Diablo Merlot)</h2>
+					<p class="divfh">까시에로 멜롯은 밝고 짙은 자주빛을 띠고 블랙베리와 자두 향, 약간의 바닐라와 토스트 향이 있으며, 부드럽고 바디감이 좋은 와인입니다. </p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 10%;">10%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 40%;">40%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 13.5%;">13.5%</div>
+					</div>
+					<ul>
+					<li>원산지: 남미/칠레(Rapel Valley)</li>
+					<li>가격: 13000원</li>
+					<li>특징: 풍만한 타닌과 오랜 피니시가 느껴지는 좋은 발렌스</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="wine-type-card"  margin-left: auto;">
+				<div class="wine-type-image">
+					<img src="../images/myImages/miolo_4.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">미올로 까베르네 소비뇽(Miolo Cabernet Sauvignon)</h2>
+					<p class="divfh">루비 레드, 말린 과일, 붉은 과일 향이 강한 와인입니다.</p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 20%;">20%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 80%;">80%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 13%;">13%</div>
+					</div>
+					<ul>
+					<li>원산지: 남미/브라질(Campanha)</li>
+					<li>가격: 35000원</li>
+					<li>특징: 붉은과일 향이 풍부함</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="wine-type-card"  margin-left: auto;">
+				<div class="wine-type-image">
+					<img src="../images/myImages/sandeman_1.png" alt="Wine Type Image">
+				</div>
+				<div class="wine-type-description">
+					<h2 class="divfh">루비 포트(Ruby Porto)</h2>
+					<p class="divfh">샌드맨 루비 포트는 전문적으로 블렌딩되어 맛이 깊고 정돈된 느낌을 가져다주는 포트 와인입니다.</p>
+					<label class = "proglabel">당도</label>
+					<div class="progress">
+						<div class="progress-bar bg-success" style="width: 80%;">80%</div>
+					</div>
+					<label class="proglabel">산도</label>
+					<div class="progress">
+						<div class="progress-bar bg-info" style="width: 20%;">20%</div>
+					</div>
+					<label class="proglabel">알콜</label>
+					<div class="progress">
+						<div class="progress-bar bg-danger" style="width: 19%;">19%</div>
+					</div>
+					<ul>
+					<li>원산지: 유럽/포르투갈(Porto)</li>
+					<li>가격:45000</li>
+					<li>특징: 빛나는 레드 루비색의 이 와인은 붉은 과일인 플럼과 스트로베리의 깨끗한 아로마향</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</main>
+
+
+	<!-- Your page content goes here -->
+	<footer>
+		<p>©copy right by jangkiki</p>
+	</footer>
+</body>
+</html>
+

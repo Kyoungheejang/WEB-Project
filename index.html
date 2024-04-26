@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<title>My Winery Homepage</title>
+</head>
+<script type="text/javascript">
+
+	function showToast(message) {
+		var toast = document.createElement('div');
+		toast.className = 'toast';
+		toast.innerHTML = message;
+
+		document.body.appendChild(toast);
+
+		toast.style.display = 'block'; 
+
+		setTimeout(function() {
+			toast.style.display = 'none';
+			document.body.removeChild(toast);
+		}, 5000);
+	}
+
+	// 페이지 로딩 후 토스트 메시지 예시
+	document.addEventListener('DOMContentLoaded', function() {
+		showToast('Welcome!');
+	});
+</script>
+<body>
+	<script src="./js/common-script-Index.js"></script>
+	<header>
+		<h1 id="mainLink" style="cursor: pointer;">
+			<img src="./images/myIcons/Icon_main.png">WINERY
+		</h1>
+		<div class="menu-buttons">
+			
+			<div class="menu-button">
+				와이너리 소개
+				<ul class="dropdown">
+					<li id="info_north">북미</li>
+					<li id="info_south">남미</li>
+					<li id="info_eu">유럽</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				와인 종류
+				<ul class="dropdown">
+					<li id="wine_light">가볍게 즐기는 와인</li>
+					<li id="wine_dark">진하고 무거운 와인</li>
+				</ul>
+			</div>
+			<div class="menu-button">
+				테마별 여행 코스 추천
+				<ul class="dropdown">
+					<li id="route_healing">힐링 코스</li>
+					<li id="route_tasty">맛있는 코스</li>
+				</ul>
+			</div>
+		</div> 
+	</header>
+	<main>
+		<div class="content_area">
+			<video class="content_area_sub" autoplay muted loop>
+				<source src="./media/wine_pouring(2).mp4" type="video/mp4">
+			</video>
+		</div>
+		<!-- <aside>
+			<ul>
+				<li><a href="#">와인추천</a></li>
+				<li><a href="#">함께 보면<br /> 좋은 정보
+				</a></li>
+				<li><a href="#">최신 기사</a></li>
+			</ul>
+		</aside> -->
+	</main>
+	<!-- <div class="bg-video">
+		<video class="bg-video__content" autoplay muted loop>
+			<source src="./media/myMedia/mainvideo.mp4" type="video/mp4">
+		</video>
+	</div> -->
+
+	<!-- 	<div id="menu-button">
+		<span></span> <span></span> <span></span>
+	</div> -->
+
+	<!-- Sidebar Menu -->
+
+
+
+
+	<!-- Your page content goes here -->
+	<footer>
+		<p>©copy right by jangkiki</p>
+	</footer>
+</body>
+</html>
+
